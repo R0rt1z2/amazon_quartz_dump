@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.h2contracts" file="/system_ext/framework/com.amazon.h2contracts.jar" dependency="com.fireos.sdk.h2shared:com.fireos.sdk.mapclientlib"/>
+<feature name="com.fireos.sdk.h2contracts" version="3"/>
+</permissions>

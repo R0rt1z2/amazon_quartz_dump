@@ -1,0 +1,13 @@
+<eps> 0
+wrdAMAZON1{_B 1
+wrdAMAZON2m 2
+wrdAMAZON3@ 3
+wrdAMAZON4z 4
+wrdAMAZON5A 5
+wrdAMAZON6n_E 6
+wrdSTOP1s_B 7
+wrdSTOP2t 8
+wrdSTOP3A 9
+wrdSTOP4p_E 10
+[NS] 11
+[S] 12

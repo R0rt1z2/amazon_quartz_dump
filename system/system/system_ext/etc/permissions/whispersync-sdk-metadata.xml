@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.whispersync" file="/system_ext/priv-app/com.amazon.device.sync.sdk.internal/com.amazon.device.sync.sdk.internal.apk" dependency="com.fireos.sdk.metrics:com.fireos.sdk.mapclientlib:com.fireos.sdk.messaging:com.fireos.sdk.tcomm"/>
+<feature name="com.fireos.sdk.whispersync" version="14"/>
+</permissions>

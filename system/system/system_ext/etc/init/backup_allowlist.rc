@@ -1,0 +1,4 @@
+service backup_allowlist /system_ext/bin/backup_allowlist
+    class main
+    disabled
+    oneshot

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+
+<permissions>
+    <permission name="amazon.permission.ADM_DROPBOX_WRITE">
+        <group gid="vendor_amazon_gid" />
+    </permission>
+</permissions>

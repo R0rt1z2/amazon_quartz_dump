@@ -1,0 +1,4 @@
+<permissions>
+    <!-- Allow listed app allows internet access in the background when in Doze idle -->
+    <allow-in-power-save package="com.amazon.device.logmanager"/>
+</permissions>

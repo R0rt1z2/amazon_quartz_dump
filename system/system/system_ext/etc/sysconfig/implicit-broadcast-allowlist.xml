@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+
+<!-- Any changes to this file will need prior approval from both Power and Performance teams.
+     Any entry should also be accompanied by a planned commitment, with link to either
+     a JIRA or other resource, for removal-->
+<config>
+    <!-- Planned removal of these can be found here https://quip-amazon.com/mDJpA7GsLdIU/MAP-FireOS-8-BD-blocker -->
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.action.account.added" />
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.action.account.removed" />
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.action.secondary.account.added" />
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.action.secondary.account.removed" />
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.action.AmazonAccountPropertyService.property.changed" />
+    <allow-implicit-broadcast action="com.amazon.dcp.sso.broadcast.CORPFMHasChanged" />
+    <allow-implicit-broadcast action="com.amazon.identity.action.ACCOUNT_FOR_PACKAGE_CHANGED" />
+    <allow-implicit-broadcast action="com.amazon.identity.action.ACCOUNT_FOR_KEY" />
+    <allow-implicit-broadcast action="com.amazon.identity.auth.account.added.on.device" />
+    <allow-implicit-broadcast action="com.amazon.identity.auth.account.removed.on.device" />
+
+    <!-- Re-evaluation of this broadcast is tracked by DOSARCH-2055 -->
+    <allow-implicit-broadcast action="com.amazon.intent.SYNC" />
+</config>

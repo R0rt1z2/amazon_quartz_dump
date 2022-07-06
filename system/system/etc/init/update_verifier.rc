@@ -1,0 +1,15 @@
+# Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+
+service update_verifier_nonencrypted /system/bin/update_verifier nonencrypted
+    user root
+    group cache system
+    priority -20
+    ioprio rt 0
+
+service update_verifier /system/bin/update_verifier ${vold.decrypt}
+    user root
+    group cache system
+    priority -20
+    ioprio rt 0

@@ -1,0 +1,29 @@
+
+<!--
+  Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+
+  PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+
+<!--
+    This file contains permissions to be granted by default. Default
+    permissions are granted to special platform components and to apps
+    that are approved to get default grants.
+
+    This file contains only the exception permission required by crash manager.
+    Fixed permissions cannot be controlled by the user and need a special
+    approval. Typically these are to ensure either legally mandated functions
+    or the app is considered a part of the OS.
+-->
+
+<!--
+    We are also keeping exception permission brazil, as in the future this will be pushed
+    during FOS build submission process.
+-->
+<exceptions>
+    <exception package="com.amazon.device.crashmanager">
+        <permission name="android.permission.READ_PHONE_STATE" fixed="true"/>
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="true"/>
+        <permission name="android.permission.GET_ACCOUNTS" fixed="true"/>
+    </exception>
+</exceptions>

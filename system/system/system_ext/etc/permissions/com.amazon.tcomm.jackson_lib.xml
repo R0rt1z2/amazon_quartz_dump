@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="com.amazon.tcomm.jackson_lib" file="/system_ext/priv-app/com.amazon.tcomm.jackson/com.amazon.tcomm.jackson.apk"/>
+</permissions>
