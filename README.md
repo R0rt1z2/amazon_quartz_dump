@@ -1,0 +1,14 @@
+# quartz-user 11 RS8311.987N 0020871109376 amz-p,release-keys
+- manufacturer: 
+- platform: mt8168
+- codename: quartz
+- flavor: quartz-user
+- release: 11
+- id: RS8311.987N
+- incremental: 0020871109508
+- tags: amz-p,release-keys
+- fingerprint: Amazon/quartz/quartz:11/RS8311.987N/0020871109376:user/amz-p,release-keys
+- is_ab: false
+- brand: Amazon
+- branch: quartz-user-11-RS8311.987N-0020871109376-amz-p,release-keys
+- repo: amazon_quartz_dump
