@@ -1,0 +1,21 @@
+#
+# Portions of this file are copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PORTIONS OF THIS FILE ARE AMAZON PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+# Amazon modifications are indicated by [Metatag(*) comments].
+#
+# Metatag(media_extensions.aosp) begin
+on post-fs-data
+    mkdir /data/vendor/audiohal 0771 audioserver audio
+# Metatag(media_extensions.aosp) end
+
+service vendor.audio-hal /vendor/bin/hw/fireos.hardware.audio.service # Metatag(media_extensions.aosp) oneline
+    class hal
+    user audioserver
+    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct wakelock
+    capabilities BLOCK_SUSPEND
+    ioprio rt 4
+    task_profiles ProcessCapacityHigh HighPerformance
+    onrestart restart audioserver

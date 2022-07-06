@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+	<!-- These are the initial mixer settings -->
+	<ctl name="INT ADDA O03_O04 Switch" value="1" />
+	<ctl name="I2S O03_O04 Switch" value="0" />
+	<ctl name="AIN Mux" value="INT ADC" />
+	<ctl name="O03 I05 Switch" value="1" />
+	<ctl name="O04 I06 Switch" value="1" />
+	<ctl name="O05 I05 Switch" value="1" />
+	<ctl name="O06 I06 Switch" value="1" />
+	<ctl name="O09 I03 Switch" value="1" />
+	<ctl name="O10 I04 Switch" value="1" />
+	<ctl name="O03 I07 Switch" value="1" />
+	<ctl name="O04 I08 Switch" value="1" />
+	<ctl name="O11 I09 Switch" value="1" />
+	<ctl name="O12 I22 Switch" value="1" />
+	<ctl name="AU_LOL Switch" value="0" />
+	<ctl name="Speaker_Amp_Switch" value="Off" />
+	<ctl name="AU_HPL Switch" value="0" />
+	<ctl name="AU_HPR Switch" value="0" />
+	<ctl name="HP_L Spk Output Switch" value="0" />
+	<ctl name="HP_R Spk Output Switch" value="0" />
+	<ctl name="Audio_Amp_L_Switch" value="Off" />
+	<ctl name="Audio_Amp_R_Switch" value="Off" />
+	<ctl name="HP_L Output Switch" value="0" />
+	<ctl name="HP_R Output Switch" value="0" />
+	<ctl name="O09 I14 Switch" value="0" />
+	<ctl name="O10 I15 Switch" value="0" />
+	<ctl name="Audio_MICBIAS0_Switch" value="Off" />
+	<ctl name="Audio_Preamp1_Switch" value="0" />
+	<ctl name="Audio_Preamp2_Switch" value="0" />
+	<ctl name="Audio_ADC_1_Switch" value="Off" />
+	<ctl name="Audio_ADC_2_Switch" value="Off" />
+	<ctl name="O07 I05 Switch" value="0" />
+	<ctl name="O08 I06 Switch" value="0" />
+	<ctl name="Audio_MicSource1_Setting" value="ADC1" />
+	<ctl name="Audio_MIC1_Mode_Select" value="ACCMODE" />
+	<!-- For HW CM mixer settings -->
+	<ctl name="O17 I03 Switch" value="1" />
+	<ctl name="O18 I04 Switch" value="1" />
+	<ctl name="O19 I05 Switch" value="1" />
+	<ctl name="O20 I06 Switch" value="1" />
+	<ctl name="O19 I07 Switch" value="1" />
+	<ctl name="O20 I08 Switch" value="1" />
+	<ctl name="VUL2 Input Mux" value="VUL2_IN_FROM_CM1" />
+	<ctl name="CM1_Bypass_Switch" value="0" />
+
+	<!-- These are actual sound device specific mixer settings -->
+	<path name="normal-playback speaker">
+	</path>
+
+	<path name="normal-playback headphone">
+	</path>
+
+	<path name="normal-playback receiver">
+	</path>
+
+	<path name="normal-playback speaker-and-headphone">
+	</path>
+
+	<path name="normal-playback bt-sco">
+		<ctl name="O03 I05 Switch" value="0" />
+		<ctl name="O04 I06 Switch" value="0" />
+		<ctl name="O07 I05 Switch" value="1" />
+		<ctl name="O08 I06 Switch" value="1" />
+	</path>
+
+	<path name="low-latency-playback speaker">
+	</path>
+
+	<path name="low-latency-playback headphone">
+	</path>
+
+	<path name="low-latency-playback receiver">
+	</path>
+
+	<path name="low-latency-playback speaker-and-headphone">
+	</path>
+
+	<path name="speaker">
+		<ctl name="Ext_Speaker_PGA_Gain" value="13dB" />
+		<ctl name="AU_LOL Switch" value="1" />
+		<ctl name="Speaker_Amp_Switch" value="On" />
+	</path>
+
+	<path name="headphone">
+		<ctl name="AU_HPL Switch" value="1" />
+		<ctl name="AU_HPR Switch" value="1" />
+		<ctl name="HP_L Output Switch" value="1" />
+		<ctl name="HP_R Output Switch" value="1" />
+		<ctl name="Audio_Amp_L_Switch" value="On" />
+		<ctl name="Audio_Amp_R_Switch" value="On" />
+	</path>
+
+	<path name="receiver">
+	</path>
+
+	<path name="speaker-and-headphone">
+		<ctl name="Headset_Speaker_Amp_Switch" value="On"/>
+		<ctl name="Ext_Speaker_PGA_Gain" value="13dB" />
+		<ctl name="AU_LOL Switch" value="1" />
+		<ctl name="AU_HPL Switch" value="1" />
+		<ctl name="AU_HPR Switch" value="1" />
+		<ctl name="HP_L Output Switch" value="1" />
+		<ctl name="HP_R Output Switch" value="1" />
+	</path>
+
+	<path name="digital-mic">
+		<ctl name="O09 I03 Switch" value="0" />
+		<ctl name="O10 I04 Switch" value="0" />
+		<ctl name="O09 I14 Switch" value="1" />
+		<ctl name="O10 I15 Switch" value="1" />
+		<ctl name="Audio_MICBIAS0_Switch" value="On" />
+	</path>
+
+	<path name="builtin-mic">
+		<ctl name="Audio_MicSource1_Setting" value="ADC1" />
+		<ctl name="Audio_MIC1_Mode_Select" value="ACCMODE" />
+		<ctl name="Audio_Preamp1_Switch" value="IN_ADC1" />
+		<ctl name="Audio_ADC_1_Switch" value="On" />
+	</path>
+
+	<path name="back-mic">
+	</path>
+
+	<path name="headset-mic">
+		<ctl name="Audio_MicSource1_Setting" value="ADC2" />
+		<ctl name="Audio_MIC1_Mode_Select" value="ACCMODE" />
+		<ctl name="Audio_Preamp1_Switch" value="IN_ADC2" />
+		<ctl name="Audio_ADC_1_Switch" value="On" />
+	</path>
+
+</mixer>

@@ -1,0 +1,106 @@
+# MTK project .rc configure
+import /vendor/etc/init/hw/init.mdump.rc
+import /vendor/etc/init/hw/init.coredump.rc
+on post-fs-data
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+    chmod 0660 /dev/FM50AF
+    chown system camera /dev/FM50AF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+#Set mlock resource to unlimited
+    setrlimit 8 4294967295 4294967295
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system /dev/ttyGS0
+    chmod 660 /dev/ttyGS1
+    chown system /dev/ttyGS1
+
+#disable console_suspend to get better logging for suspend
+    write /sys/module/printk/parameters/console_suspend N
+
+on property:vendor.hwc.video_mode=1
+    exec /vendor/bin/hw/hidl_aal_client 2
+
+on property:vendor.hwc.video_mode=0
+    exec /vendor/bin/hw/hidl_aal_client 0
+
+on boot
+    write /proc/sys/vm/min_free_kbytes 32768
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+    export DOWNLOAD_CACHE /cache
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#touch gesture wakeup
+on property:vendor.touch_gesture_wakeup=1
+    write /sys/touchscreen/link_input_dev/gesture_wakeup 1
+
+on property:vendor.touch_gesture_wakeup=0
+    write /sys/touchscreen/link_input_dev/gesture_wakeup 0
+
+# Create /keys mount point and mount
+on post-fs-data && property:ro.boot.mnt_keys_rw_opts=rw
+    mkdir /mnt/vendor/keys 0751 root system
+    mount_all /vendor/etc/fstab.mount_keys.rw
+on post-fs-data && property:ro.boot.mnt_keys_rw_opts=ro
+    mkdir /mnt/vendor/keys 0751 root system
+    mount_all /vendor/etc/fstab.mount_keys.ro
+
+# Update the dm-verity state to partition.*.verified properties
+on post-fs-data
+    verity_update_state
+
+# charge Top-off mode
+on property:vendor.bcm.pulldown_toc=4200
+    write /sys/devices/platform/charger/top_off_mode 1
+
+on property:vendor.bcm.pulldown_toc=4400
+    write /sys/devices/platform/charger/top_off_mode 0
+
+# Battery Aging
+on property:persist.vendor.bcm.batt_stress=4200
+    write /sys/devices/platform/battery/use_aging_zcv 1
+
+# Enable charging
+on property:persist.vendor.bcm.disable_charging.enabled=0
+    write /sys/devices/platform/charger/bcm_flag 0
+# Disable charging for charge timer timeout
+on property:persist.vendor.bcm.disable_charging.enabled=charge_timer
+    write /sys/devices/platform/charger/bcm_flag charge_timer

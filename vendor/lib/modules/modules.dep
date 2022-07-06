@@ -1,0 +1,4 @@
+/vendor/lib/modules/bt_drv.ko: /vendor/lib/modules/wmt_drv.ko
+/vendor/lib/modules/wlan_drv_gen4m.ko: /vendor/lib/modules/wmt_chrdev_wifi.ko /vendor/lib/modules/wmt_drv.ko
+/vendor/lib/modules/wmt_drv.ko:
+/vendor/lib/modules/wmt_chrdev_wifi.ko: /vendor/lib/modules/wmt_drv.ko
